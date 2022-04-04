@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="leftmenu">
+
+  <div class="left">
+                    <span class="left__icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+    <div class="left__content">
+      <div class="left__profile">
+        <div class="left__image"><img src="/images/img.png" alt=""></div>
+        <a  class="left__name"  th:href="@{/GDNhanVienKho}"> Nhân Viên Kho</a>
+      </div>
+      <ul class="left__menu">
+
+          <li class="left__menuItem">
+              <a th:href="@{/Nvk/timnhacungcap}" class="left__title"><img src="/assets/icon-book.svg" alt="">Nhập Nguyên Liệu</a>
+          </li>
+
+          <li class="left__menuItem">
+              <a  class="left__title"><img src="/assets/icon-pencil.svg" alt="">Đăng Ký Lịch Làm Việc</a>
+          </li>
+
+        <li class="left__menuItem">
+          <a  class="left__title"><img src="/assets/icon-users.svg" alt="">Xem Lịch Làm Việc</a>
+        </li>
+
+
+
+        <li class="left__menuItem">
+          <a th:href="@{/dangxuat}" class="left__title"><img src="/assets/icon-logout.svg" alt="">Đăng Xuất</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

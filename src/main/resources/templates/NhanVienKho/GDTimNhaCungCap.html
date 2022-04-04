@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Tìm Nhà Cung Cấp</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Tìm Nhà Cung Cấp </div>
+                    <div class="right__formWrapper">
+                        <form th:action="@{/Nvk/doTimNhaCungCap}" method="post" id="timnhacungcap">
+                            <div class="right__inputWrapper">
+                                <!-- <label>Nhập tên nhà cung cấp</label> -->
+                                <input type="text" placeholder="Nhập tên nhà cung cấp" value="" id="tenNCC" name="tennhacungcap" autofocus>
+                            </div>
+                            <p style="color: red" th:text="${ERROR1}"></p>
+                            <br>
+
+                            <button class="btn" type="submit" id="submit-btn">Tìm kiếm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}">
+/*let submitBtn=document.getElementById("submit-btn")
+submitBtn.onclick=function (){
+    let tenNCCElement=document.getElementById("tenNCC")
+
+    if(tenNCCElement.value.length <0){
+        let pElement =document.createElement("p")
+        pElement.innerHTML="không được để trống ô nhập";
+        pElement.style.color="red"
+        tenNCCElement.parentElement.appendChild(pElement)
+    }
+}*/
+</script>
+</body>
+</html>

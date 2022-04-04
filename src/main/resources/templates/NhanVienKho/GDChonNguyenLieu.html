@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Nguyên Liệu</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Danh sách nguyên liệu </div>
+                    <div class="right__table">
+                        <div class="right__tableWrapper">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Tên nguyên liệu</th>
+                                    <th>Chọn</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="nl : ${nguyenLieus}">
+                                    <td th:text="${nl.id}"></td>
+                                    <td th:text="${nl.tenNL}"></td>
+                                    <td data-label="Sửa" class="right__iconTable"><a th:href="@{/Nvk/Nhapsoluongdongia?idNL={id}(id=${nl.id})}"><img src="/assets/icon-edit.svg" alt=""></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="right__formWrapper" style="text-align: center">
+                        <form >
+                            <br>
+                            <a class="btn" type="submit" th:href="@{/Nvk/Themnguyenlieu}">Thêm nguyên liệu mới</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

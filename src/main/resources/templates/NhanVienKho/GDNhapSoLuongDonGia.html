@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nhập số lượng đơn giá</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Nhập số lượng đơn giá </div>
+                    <div class="right__formWrapper">
+                        <form th:action="@{/Nvk/doNhapsoluongdongia}" method="post">
+                            <div class="right__inputWrapper">
+                                <label>Id nguyên liệu</label>
+                                <input th:value="${nguyenLieu.get().id}" name="idNL" >
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Tên nguyên liệu</label>
+                                <input th:value="${nguyenLieu.get().tenNL}" name="tennguyenlieu" >
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Nhập số lượng</label>
+                                <input type="number" placeholder="Nhập số lượng"  name="soluong" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Nhập đơn giá</label>
+                                <input type="number" placeholder="Nhập đơn giá"  name="dongia" autofocus>
+                            </div>
+                            <p style="color: red" th:text="${ERROR1}"></p>
+                            <button class="btn" type="submit">Tiếp tục</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

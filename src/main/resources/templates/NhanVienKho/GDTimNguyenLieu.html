@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tìm Nguyên Liệu</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Tìm Nguyên Liệu </div>
+                    <div class="right__formWrapper">
+                        <form th:action="@{/Nvk/dotimnguyenlieu}" method="post">
+                            <div class="right__inputWrapper">
+                                <!-- <label>Nhập tên nhà cung cấp</label> -->
+                                <input type="text" placeholder="Nhập tên nguyên liệu"  id="id" name="tennguyenlieu" autofocus>
+                            </div>
+                            <p style="color: red" th:text="${ERROR1}"></p>
+                            <br>
+                            <button class="btn" type="submit">Tìm kiếm</button>
+                        </form>
+                    </div>
+
+                    <div class="right__table">
+                        <div class="right__tableWrapper">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Tên nguyên liệu</th>
+                                    <th>Số lượng(Kg,Chiếc)</th>
+                                    <th>Đơn giá (đồng/kg,chiếc)</th>
+                                    <th>Thành tiền</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="hdnl : ${hdnl}">
+                                    <td th:text="${hdnl.nguyenLieu.tenNL}"></td>
+                                    <td th:text="${hdnl.soluong}"></td>
+
+                                    <td th:text="${hdnl.dongia}"></td>
+                                    <td th:text="${hdnl.thanhtien}"> </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="right__formWrapper" style="text-align: center">
+                        <form >
+                            <br>
+                            <a class="btn" type="submit" th:href="@{/Nvk/Hoadonnhaphang}" >Xác nhận thanh toán</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

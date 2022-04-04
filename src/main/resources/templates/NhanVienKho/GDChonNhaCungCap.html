@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Nhà Cung Cấp</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chọn nhà cung cấp</title>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Danh sách nhà cung cấp </div>
+                    <div class="right__table">
+                        <div class="right__tableWrapper">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Tên nhà cung cấp</th>
+                                    <th>Sđt</th>
+                                    <th>Mô tả</th>
+                                    <th>Chọn</th>
+
+                                </tr>
+                                </thead>
+                                    <tbody>
+                                    <tr th:each="ncc : ${nccs}">
+                                        <td th:text="${ncc.id}"></td>
+                                        <td th:text="${ncc.tenNcc}"></td>
+                                        <td th:text="${ncc.sdt}"></td>
+                                        <td> </td>
+                                        <td data-label="Sửa" class="right__iconTable"><a th:href="@{/Nvk/timnguyenlieu?id={id}(id=${ncc.id}) }"><img src="/assets/icon-edit.svg" alt=""></a></td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="right__formWrapper" style="text-align: center">
+                        <form>
+                            <br>
+                            <a class="btn" type="submit"  th:href="@{/Nvk/Themnhacungcap}">Thêm nhà cung cấp mới</a>
+                        </form>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script  th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Thêm Nhà Cung Cấp</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Thêm Nhà Cung Cấp </div>
+                    <div class="right__formWrapper">
+                        <form th:action="@{/Nvk/doThemnhacungcap}" th:object="${ncc}"  method="post">
+                            <p style="color: red" th:text="${ERROR1}"></p>
+                            <div class="right__inputWrapper">
+                                <label>Tên nhà cung cấp</label>
+                                <input type="text" placeholder="Nhập tên nhà cung cấp"  th:field="*{tenNcc}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Sđt</label>
+                                <input type="number" placeholder="Nhập sđt nhà cung cấp"  th:field="*{sdt}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Mô tả</label>
+                                <input type="text" placeholder="Nhập mô tả nhà cung cấp"  th:field="*{mota}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Số nhà</label>
+                                <input type="text" placeholder="Nhập số nhà"  th:field="*{diaChi.sonha}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Xã Phường</label>
+                                <input type="text" placeholder="Nhập xã phương"  th:field="*{diaChi.xaphuong}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Quận Huyện</label>
+                                <input type="text" placeholder="Nhập quận huyện"  th:field="*{diaChi.quanhuyen}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Thành Phố</label>
+                                <input type="text" placeholder="Nhập thành phố"  th:field="*{diaChi.thanhpho}" autofocus>
+                            </div>
+                            <button class="btn" type="submit">Thêm Nhà Cung Cấp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

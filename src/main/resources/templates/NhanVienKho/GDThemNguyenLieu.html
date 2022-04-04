@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Thêm Nguyên Liệu</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="dashboard">
+
+            <div th:replace="/share/leftmenu :: leftmenu"></div>
+
+            <div class="right">
+                <div class="right__content">
+                    <div class="right__title">Thêm nguyên liệu </div>
+                    <div class="right__formWrapper">
+                        <form th:action="@{/Nvk/doThemnguyenlieu}" th:object="${nl}"  method="post">
+
+                            <div class="right__inputWrapper">
+                                <label>Tên Nguyên Liệu</label>
+                                <input type="text" placeholder="Nhập tên nguyên liệu"  th:field="*{tenNL}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Thể Loại</label>
+                                <input type="text" placeholder="Nhập thể loại"  th:field="*{theloai}" autofocus>
+                            </div>
+                            <div class="right__inputWrapper">
+                                <label>Mô tả</label>
+                                <input type="text" placeholder="Nhập mô tả nguyên liệu"  th:field="*{mota}" autofocus>
+                            </div>
+
+                            <button class="btn" type="submit">Thêm Nguyên Liệu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
